@@ -64,7 +64,7 @@ export const services: Service[] = [
       },
     ],
     image: {
-      src: "/images/room-after.svg",
+      src: "/images/ev-boyama.png",
       alt: "İstanbul'da ev boyama sonrası ferah ve temiz görünümlü salon",
     },
   },
@@ -131,7 +131,7 @@ export const services: Service[] = [
       },
     ],
     image: {
-      src: "/images/protection-after.svg",
+      src: "/images/esyali-ev-boyama.png",
       alt: "Eşyalı ev boyama sonrası koruma yapılmış ve temiz teslim edilmiş oturma odası",
     },
   },
@@ -193,7 +193,7 @@ export const services: Service[] = [
       },
     ],
     image: {
-      src: "/images/office-after.svg",
+      src: "/images/ofis-boyama.png",
       alt: "İstanbul'da ofis boyama sonrası düzenli ve temiz teslim edilmiş çalışma alanı",
     },
   },
@@ -255,7 +255,7 @@ export const services: Service[] = [
       },
     ],
     image: {
-      src: "/images/facade-after.svg",
+      src: "/images/dis-cephe-boyama.png",
       alt: "Dış cephe boyama sonrası bakımlı görünüm kazanmış apartman cephesi",
     },
   },
@@ -317,7 +317,7 @@ export const services: Service[] = [
       },
     ],
     image: {
-      src: "/images/mold-after.svg",
+      src: "/images/rutubet-cozumu.png",
       alt: "Rutubet ve küf çözümü sonrası temizlenmiş ve boyanmış duvar yüzeyi",
     },
   },
@@ -379,7 +379,7 @@ export const services: Service[] = [
       },
     ],
     image: {
-      src: "/images/protection-before.svg",
+      src: "/images/alci-siva.png",
       alt: "Boya öncesi alçı ve zımpara hazırlığı yapılan duvar yüzeyi",
     },
   },
@@ -441,7 +441,7 @@ export const services: Service[] = [
       },
     ],
     image: {
-      src: "/images/room-after.svg",
+      src: "/images/dekoratif-boya.png",
       alt: "Dekoratif boya uygulanmış şık ve sade vurgu duvarlı salon",
     },
   },

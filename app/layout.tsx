@@ -4,6 +4,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
+import { FloatingButtons } from "@/components/FloatingButtons";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <MobileStickyCTA />
+          <FloatingButtons />
         </div>
       </body>
     </html>

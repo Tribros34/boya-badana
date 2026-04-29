@@ -5,8 +5,8 @@ export const galleryItems: GalleryItem[] = [
     title: "Salon yenileme uygulaması",
     summary:
       "Taşınma öncesi yenilenen dairede duvar onarımı, tavan boyası ve silinebilir iç cephe boya uygulaması birlikte planlandı.",
-    beforeSrc: "/images/room-before.svg",
-    afterSrc: "/images/room-after.svg",
+    beforeSrc: "/images/ev-boyama-oncesi.png",
+    afterSrc: "/images/ev-boyama-sonrasi.png",
     beforeAlt:
       "Boyaya hazırlık aşamasındaki İstanbul dairesi salon duvarı ve koruma örtüleri",
     afterAlt:
