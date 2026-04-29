@@ -1,0 +1,11 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#EEF6F1"/>
+  <rect x="70" y="110" width="1060" height="610" rx="34" fill="#FFFFFF" stroke="#D9E7DE" stroke-width="12"/>
+  <rect x="130" y="190" width="940" height="420" rx="24" fill="#F7F7F2"/>
+  <rect x="160" y="540" width="880" height="46" rx="18" fill="#CBD5CF"/>
+  <rect x="250" y="300" width="260" height="180" rx="22" fill="#F2E4D1"/>
+  <rect x="690" y="300" width="260" height="180" rx="22" fill="#E4F1EA"/>
+  <circle cx="972" cy="214" r="38" fill="#059669"/>
+  <rect x="130" y="760" width="240" height="68" rx="34" fill="#FFFFFF"/>
+  <text x="182" y="804" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#065F46">Room After</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F0F4F0"/>
+  <rect x="180" y="120" width="840" height="620" rx="30" fill="#D6DFD8"/>
+  <rect x="240" y="180" width="720" height="500" rx="12" fill="#F8FAF8"/>
+  <rect x="300" y="240" width="140" height="160" fill="#E2E8F0"/>
+  <rect x="530" y="240" width="140" height="160" fill="#F2E8D6"/>
+  <rect x="760" y="240" width="140" height="160" fill="#E2E8F0"/>
+  <rect x="300" y="460" width="140" height="160" fill="#E2E8F0"/>
+  <rect x="530" y="460" width="140" height="160" fill="#F2E8D6"/>
+  <rect x="760" y="460" width="140" height="160" fill="#E2E8F0"/>
+  <circle cx="992" cy="164" r="40" fill="#10B981"/>
+  <rect x="140" y="780" width="252" height="68" rx="34" fill="#FFFFFF"/>
+  <text x="190" y="824" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#065F46">Facade After</text>
+</svg>
