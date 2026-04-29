@@ -6,7 +6,6 @@ import { FAQAccordion } from "@/components/FAQAccordion";
 import { FinalCTA } from "@/components/FinalCTA";
 import { GalleryPreview } from "@/components/GalleryPreview";
 import { HeroSection } from "@/components/HeroSection";
-import { PriceEstimatorForm } from "@/components/PriceEstimatorForm";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
@@ -45,8 +44,6 @@ export default function Home() {
       <ProblemSolutionSection />
 
       <ServicesGrid services={services} />
-
-      <PriceEstimatorForm />
 
       <DistrictGrid districts={districts} />
 

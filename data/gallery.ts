@@ -16,8 +16,8 @@ export const galleryItems: GalleryItem[] = [
     title: "Eşyalı ev koruma düzeni",
     summary:
       "Mobilyaların merkezde toplanıp streç ve branda ile korunduğu, zeminlerin tamamen kapatıldığı örnek hazırlık düzeni.",
-    beforeSrc: "/images/protection-before.svg",
-    afterSrc: "/images/protection-after.svg",
+    beforeSrc: "/images/oncesi-korumasiz.png",
+    afterSrc: "/images/oncesi-korumali.png",
     beforeAlt:
       "Eşyalı ev boyama öncesi streç ve zemin koruma hazırlığı yapılmış oda",
     afterAlt:
@@ -27,8 +27,8 @@ export const galleryItems: GalleryItem[] = [
     title: "Ofis duvar yenileme işi",
     summary:
       "Hafta sonu planlanan ofis boyama uygulamasında toplantı odaları ve açık ofis alanları mesai başlamadan hazır hale getirildi.",
-    beforeSrc: "/images/office-before.svg",
-    afterSrc: "/images/office-after.svg",
+    beforeSrc: "/images/ofis-boyama-oncesi.png",
+    afterSrc: "/images/ofis-boyama.png",
     beforeAlt:
       "Ofis boyama öncesi duvarları yıpranmış toplantı alanı görünümü",
     afterAlt:
@@ -38,8 +38,8 @@ export const galleryItems: GalleryItem[] = [
     title: "Rutubetli duvar onarım süreci",
     summary:
       "Kabaran boya sökülüp yüzey kurutma, astar ve kat uygulaması sonrası tekrar kullanıma uygun hale getirilen yatak odası duvarı.",
-    beforeSrc: "/images/mold-before.svg",
-    afterSrc: "/images/mold-after.svg",
+    beforeSrc: "/images/rutubet-oncesi.png",
+    afterSrc: "/images/rutubet-cozumu.png",
     beforeAlt:
       "Rutubet ve küf izi bulunan İstanbul yatak odası duvarı",
     afterAlt:
@@ -49,8 +49,8 @@ export const galleryItems: GalleryItem[] = [
     title: "Dış cephe yüzey düzenleme",
     summary:
       "Küçük ölçekli apartman cephesinde çatlak takibi, yüzey hazırlığı ve dengeli renk uygulamasıyla daha bakımlı bir görünüm elde edildi.",
-    beforeSrc: "/images/facade-before.svg",
-    afterSrc: "/images/facade-after.svg",
+    beforeSrc: "/images/dis-cephe-oncesi.png",
+    afterSrc: "/images/dis-cephe-boyama.png",
     beforeAlt:
       "Dış cephe boyama öncesi yıpranmış apartman yüzeyi görünümü",
     afterAlt:
@@ -60,8 +60,8 @@ export const galleryItems: GalleryItem[] = [
     title: "Çocuk odası renk değişimi",
     summary:
       "Koyu renkten açık tona dönüşüm yapılan çocuk odasında düşük kokulu ve silinebilir boya tercih edildi.",
-    beforeSrc: "/images/room-before.svg",
-    afterSrc: "/images/room-after.svg",
+    beforeSrc: "/images/cocuk-odasi-oncesi.png",
+    afterSrc: "/images/cocuk-odasi-sonrasi.png",
     beforeAlt:
       "Çocuk odası boya yenileme öncesi koyu renk duvarlar ve hazırlık düzeni",
     afterAlt:

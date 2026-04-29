@@ -79,7 +79,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/protection-after.svg",
+      src: "/images/blog-esyali-ev.png",
       alt: "Eşyalı ev boyama sonrası düzenli bırakılmış oturma odası",
     },
   },
@@ -164,7 +164,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/room-after.svg",
+      src: "/images/blog-fiyat.png",
       alt: "Boya badana fiyat planlaması yapılan modern daire iç mekânı",
     },
   },
@@ -245,7 +245,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/mold-after.svg",
+      src: "/images/blog-rutubet.png",
       alt: "Rutubet onarımı sonrası temizlenmiş ve boyanmış duvar",
     },
   },
@@ -326,7 +326,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/office-after.svg",
+      src: "/images/blog-1-gun.png",
       alt: "Hızlı teslim için planlanmış temiz boya uygulaması yapılan iç mekân",
     },
   },
@@ -399,7 +399,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/protection-before.svg",
+      src: "/images/blog-hazirlik.png",
       alt: "Boya öncesi hazırlığı yapılmış ve korumaya alınmış ev odası",
     },
   },
@@ -478,7 +478,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/room-after.svg",
+      src: "/images/blog-silinebilir.png",
       alt: "Silinebilir boya uygulanmış temiz ve ferah iç mekân duvarı",
     },
   },
@@ -557,7 +557,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/room-after.svg",
+      src: "/images/blog-cocuk.png",
       alt: "Açık tonlarla yenilenmiş ferah çocuk odası duvarları",
     },
   },
@@ -637,7 +637,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/office-after.svg",
+      src: "/images/blog-ofis.png",
       alt: "Boyama sonrası düzenli ve kurumsal görünümlü ofis alanı",
     },
   },
@@ -703,7 +703,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/room-before.svg",
+      src: "/images/blog-tasinma.png",
       alt: "Taşınma öncesi boya için hazırlanmış boş daire iç mekânı",
     },
   },
@@ -776,7 +776,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     coverImage: {
-      src: "/images/protection-after.svg",
+      src: "/images/blog-temizlik.png",
       alt: "Boya sonrası temiz teslim edilmiş düzenli ev iç mekânı",
     },
   },
