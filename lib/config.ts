@@ -5,10 +5,10 @@ export const siteConfig = {
     "İstanbul'da ev, ofis ve iş yerleri için temiz, planlı ve şeffaf fiyatlı boya badana hizmeti.",
   baseUrl:
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.istanbulboyabadana.com",
-  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY ?? "+90 532 123 45 67",
-  phoneHref: process.env.NEXT_PUBLIC_PHONE_HREF ?? "tel:+905321234567",
+  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY ?? "+90 531 595 02 04",
+  phoneHref: process.env.NEXT_PUBLIC_PHONE_HREF ?? "tel:+905315950204",
   whatsappNumber:
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905321234567",
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905315950204",
   email:
     process.env.NEXT_PUBLIC_CONTACT_EMAIL ??
     "iletisim@boyabadanaistanbul.com",
