@@ -14,11 +14,12 @@ export function DistrictGrid({ districts }: DistrictGridProps) {
           İstanbul odaklı sayfalar
         </p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
-          İstanbul&rsquo;un merkezi ilçelerinde profesyonel boya badana
+          İstanbul&rsquo;un birçok ilçesi için özel boya badana sayfaları
         </h2>
         <p className="mt-4 leading-8 text-slate-600">
           Her ilçe için aynı metni kopyalamak yerine, kullanıcı profilini ve sık
-          görülen ihtiyaçları ayrı ayrı ele alan landing page yapısı kurduk.
+          görülen ihtiyaçları ayrı ayrı ele alan ölçeklenebilir bir landing page
+          yapısı kurduk.
         </p>
       </div>
 

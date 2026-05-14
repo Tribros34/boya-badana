@@ -1,573 +1,639 @@
 import type { District } from "@/lib/types";
 
-export const districts: District[] = [
-  {
-    name: "Kadıköy",
-    slug: "kadikoy-boya-badana",
-    title: "Kadıköy Boya Badana",
-    metaTitle: "Kadıköy Boya Badana | Temiz ve Profesyonel Boyacı Ustası",
+type DistrictProfileKey =
+  | "coastal-family"
+  | "dense-urban"
+  | "office-mixed"
+  | "premium-residential"
+  | "villa-lowrise"
+  | "historic-core"
+  | "modern-residential";
+
+type DistrictSeed = {
+  name: string;
+  neighborhoods: string[];
+  profile: DistrictProfileKey;
+};
+
+type DistrictProfile = {
+  metaTitle: string;
+  metaDescription: string;
+  h1: string;
+  intro: string[];
+  customerProfile: string[];
+  commonNeeds: string[];
+  localHighlights: string[];
+  serviceBridge: string[];
+  services: string[];
+  relatedBlogs: string[];
+  relatedServices: string[];
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+};
+
+const districtProfiles: Record<DistrictProfileKey, DistrictProfile> = {
+  "coastal-family": {
+    metaTitle:
+      "{district} Boya Badana | Aile Evleri ve Nemli Yüzeyler İçin Temiz Hizmet",
     metaDescription:
-      "Kadıköy'de eşyalı ev, boş daire ve taşınma öncesi boya badana hizmeti. Zemin ve eşya koruma, şeffaf fiyat, ücretsiz keşif ve temiz teslim.",
-    h1: "Kadıköy'de Temiz ve Profesyonel Boya Badana Hizmeti",
+      "{district} bölgesinde aile evleri, taşınma öncesi daireler ve nem gören yüzeyler için temiz, planlı boya badana hizmeti sunuyoruz.",
+    h1: "{district} Boya Badana Hizmeti ile Temiz ve Düzenli Yenileme",
     intro: [
-      "Kadıköy'de boya badana işi çoğu zaman sadece duvarın rengini yenilemek anlamına gelmiyor. Moda, Fenerbahçe, Caddebostan, Suadiye ve Erenköy hattında kullanıcıların beklentisi genelde daha estetik, daha titiz ve daha planlı bir uygulama oluyor. Özellikle eski apartman dairelerinde yüksek tavan, yorgun yüzey, renk geçişi ve eşyalı kullanım aynı anda yönetilmek zorunda kalıyor.",
-      "Bu bölgede yaşayan kullanıcıların büyük kısmı evi hızlıca toparlamak istiyor ama aceleyle yapılmış bir iş de istemiyor. Bizim yaklaşımımız bu dengeyi korumak: alanı dağıtmadan, eşyaları koruyarak, boya seçimini yaşam alışkanlığına göre yaparak ve süreyi baştan açıkça konuşarak ilerlemek.",
+      "{district} tarafında boya badana talepleri çoğu zaman aile yaşamını çok dağıtmadan evi yenileme ihtiyacından doğuyor. {areas} gibi bölgelerde kullanıcılar hem duvar sonucuna hem de koruma düzenine dikkat ediyor.",
+      "Denize yakınlık, kuzey cephe serinliği ya da uzun süre kapalı kalan odalar nedeniyle bu ilçelerde bazen boya kararı yüzey sağlığıyla birlikte düşünülmeli. Bu yüzden işi yalnızca renk yenileme olarak değil, hazırlık ve teslim planı olarak ele alıyoruz.",
     ],
     customerProfile: [
-      "Kadıköy'de sık gördüğümüz müşteri profili; taşınma öncesi eve ferahlık kazandırmak isteyen çiftler, kiraya verilecek daireyi düzenli göstermek isteyen ev sahipleri, çocuk odasını yenilemek isteyen aileler ve dekoratif vurgu isteyen kullanıcılar oluyor. Bir kısmı boş daire boyatıyor, önemli bir kısmı ise hâlen oturulan evde eşyalı uygulama talep ediyor.",
-      "Semt dokusu gereği estetik beklenti yüksek. Renk tonu seçerken 'çok iddialı olmasın ama temiz dursun' yaklaşımı sık geliyor. Açık kırık beyazlar, yumuşak grej tonları ve mekânı yormayan dekoratif vurgu duvarları Kadıköy tarafında daha çok tercih ediliyor.",
+      "{district} içinde en sık karşılaştığımız kullanıcı profili; taşınma öncesi dairesini toparlamak isteyen aileler, oturulan evde eşyalı uygulama isteyen kullanıcılar ve duvarda leke ya da nem izi gören ev sahipleri oluyor.",
+      "Bu bölgede kullanıcılar genelde güvenilir ekip, temiz çalışma ve baştan konuşulmuş süre bekliyor. Özellikle çocuk odası, salon ve antre gibi yoğun kullanılan alanlarda boya tipi seçimi ayrıca önem kazanıyor.",
     ],
     commonNeeds: [
-      "Kadıköy boya badana işlerinde en sık karşılaştığımız ihtiyaçların başında eski boya katmanlarının toparlanması, çivi ve raf izlerinin kapatılması, taşınma öncesi hijyen hissi veren açık tonlara geçiş ve eşyalı evlerde dikkatli koruma geliyor. Yüksek tavanlı eski apartmanlarda tavan ve duvar dengesini iyi kurmak da önemli.",
-      "Bir diğer ihtiyaç da dekoratif ama abartısız sonuç. Kullanıcılar evi yenilenmiş görmek istiyor fakat 'stok daire' gibi görünmesini istemiyor. Bu nedenle boya kadar uygulama çizgisi, köşe temizliği ve kapı çevrelerindeki işçilik öne çıkıyor.",
+      "{district} boya badana işlerinde en sık gördüğümüz başlıklar eşyalı ev koruması, tavan yenilemesi, duvar lekeleri, lokal alçı tamiri ve gerektiğinde rutubet kaynaklı yüzey hazırlığı oluyor.",
+      "Kullanıcıların önemli bir kısmı yalnızca yeni renk değil, daha ferah ve daha bakımlı bir görünüm istiyor. Bu nedenle silinebilir boya, düşük kokulu ürün ve düzenli maskeleme planı çoğu işte öne çıkıyor.",
     ],
     localHighlights: [
-      "Moda ve Yeldeğirmeni gibi daha karakterli mahallelerde eski duvarların nefes alması, alçı ve zımpara hazırlığı ile birlikte düşünülmeli. Bağdat Caddesi'ne yakın dairelerde ise yeni boyanın temiz, modern ve mobilyalarla uyumlu görünmesi ön plana çıkıyor.",
-      "Kadıköy'de taşınma takvimi genelde sıkışık olduğundan kullanıcılar net süre duymak istiyor. İşin bir günde bitebileceği senaryolarda bunu planlıyoruz; ancak rutubet, kapsamlı tamir ya da koyudan çok açık tona geçiş gibi durumlarda baştan gerçekçi çerçeve çiziyoruz.",
+      "{areas} hattında yapı tipi ve hava koşulları boya sonucunu doğrudan etkileyebiliyor. Özellikle nemli duvar, serin oda ya da uzun süre kapalı kalmış alanlarda önce yüzeyi doğru okumak gerekiyor.",
+      "{district} için yaklaşımımız hızlı ama kestirme olmayan bir plan kurmak. Evin günlük kullanımını, boyanacak alanın durumunu ve varsa koruma hassasiyetini birlikte değerlendiriyoruz.",
     ],
     serviceBridge: [
-      "Kadıköy için en çok talep edilen hizmetler arasında eşyalı ev boyama, ev boyama, dekoratif boya ve taşınma öncesi hızlı yenileme öne çıkıyor. Eski apartmanlarda lokal alçı-sıva işi de çoğu zaman boya sürecinin parçası haline geliyor.",
-      "Eğer daire denize yakın hatta yer alıyorsa rutubet ve leke geçişlerini de ayrıca değerlendiriyoruz. Amaç sadece günü kurtaran bir boya değil, kullanıcının taşındıktan sonra da memnun kalacağı temiz bir sonuç oluşturmak.",
+      "{district} için en çok talep edilen hizmetler ev boyama, eşyalı ev boyama, rutubet ve küf çözümü ile lokal alçı sıva zımpara işleri oluyor.",
+      "İhtiyaç tek bir işlemle sınırlı değilse işleri ayrı ekipler yerine tek plan içinde birleştiriyoruz. Böylece hem zaman kaybı azalıyor hem de teslim kalitesi daha dengeli hale geliyor.",
     ],
     services: [
-      "Eşyalı ev boyama",
       "Ev boyama",
-      "Dekoratif boya",
+      "Eşyalı ev boyama",
+      "Rutubet ve küf çözümü",
       "Alçı sıva zımpara",
     ],
-    neighborhoods: [
-      "Moda",
-      "Fenerbahçe",
-      "Suadiye",
-      "Caddebostan",
-      "Erenköy",
-      "Koşuyolu",
-    ],
-    faqs: [
-      {
-        question: "Kadıköy'de eşyalı ev boyama ne kadar sürer?",
-        answer:
-          "Dairenin büyüklüğüne ve onarım ihtiyacına göre değişir. Standart 2+1 ve 3+1 işlerin önemli kısmı iyi planlandığında aynı gün içinde tamamlanabilir, ancak eski yüzeylerde ek hazırlık gerekebilir.",
-      },
-      {
-        question: "Kadıköy'de dekoratif boya için keşif gerekiyor mu?",
-        answer:
-          "Evet. Vurgu duvarın boyutu, ışık durumu ve mevcut yüzey yapısı sonucu doğrudan etkilediği için yerinde ya da fotoğraflı değerlendirme faydalı olur.",
-      },
-    ],
     relatedBlogs: [
+      "rutubetli-duvar-nasil-boyanir",
       "esyali-evde-boya-badana-nasil-yapilir",
-      "tasinmadan-once-ev-boyatmak",
       "silinebilir-boya-mi-plastik-boya-mi",
     ],
     relatedServices: [
-      "esyali-ev-boyama",
       "ev-boyama",
-      "dekoratif-boya",
+      "esyali-ev-boyama",
+      "rutubet-kuf-leke-cozumu",
+    ],
+    faqs: [
+      {
+        question: "{district} içinde rutubetli duvarlar da boyanabiliyor mu?",
+        answer:
+          "Evet, ancak önce yüzeydeki sorunun kaynağını değerlendirmek gerekir. Uygun temizlik, kurutma ve astar planı yapılmadan doğrudan boya geçmek kalıcı çözüm sağlamaz.",
+      },
+      {
+        question: "{district} bölgesinde eşyalı ev boyama çok dağıtır mı?",
+        answer:
+          "Planlı koruma ve oda sıralamasıyla süreç kontrol altında tutulabilir. Amaç işi sadece bitirmek değil, yaşam alanını mümkün olduğunca düzenli bırakmaktır.",
+      },
     ],
   },
-  {
-    name: "Beşiktaş",
-    slug: "besiktas-boya-badana",
-    title: "Beşiktaş Boya Badana",
-    metaTitle: "Beşiktaş Boya Badana | Hızlı, Temiz ve Güvenilir Boyacı",
+  "dense-urban": {
+    metaTitle:
+      "{district} Boya Badana | Yoğun Yerleşimde Hızlı ve Temiz Uygulama",
     metaDescription:
-      "Beşiktaş'ta ev, ofis ve kiralık daireler için boya badana hizmeti. Rutubet, leke ve taşınma öncesi hızlı boyama çözümleri için teklif alın.",
-    h1: "Beşiktaş'ta Hızlı ve Düzenli Boya Badana Çözümleri",
+      "{district} bölgesinde apartman daireleri ve yoğun yerleşim alanları için temiz, ekonomik ve planlı boya badana çözümleri sunuyoruz.",
+    h1: "{district} Boya Badana Hizmeti ile Hızlı ve Düzenli Sonuç",
     intro: [
-      "Beşiktaş'ta boya badana ihtiyacı çoğu zaman zaman baskısıyla gelir. Kiracı çıkışı, öğrenci değişimi, küçük ofis yenilemesi ya da hızlı teslim edilmesi gereken bir daire nedeniyle kullanıcılar işi uzatmadan çözmek ister.",
-      "Bunun yanında ilçedeki eski bina stoku da boyayı yalnızca renk tazeleme işi olmaktan çıkarır. Rutubet, kabaran yüzey, leke geçişi ve yorgun tavanlar Beşiktaş'taki işlerde sık gördüğümüz başlıklardır.",
+      "{district} tarafında boya badana ihtiyacı genelde taşınma, kiracı değişimi ya da uzun süredir yenilenmeyen dairelerin toparlanmasıyla birlikte geliyor. {areas} çevresinde kullanıcılar işi uzatmadan ama dağınık bir süreç yaşamadan sonuç almak istiyor.",
+      "Bu tip ilçelerde erişim, apartman düzeni, dar çalışma alanı ve eşyalı kullanım boyanın kendisi kadar önemli hale geliyor. Bu yüzden planı sadece kaç oda boyanacağına göre değil, uygulama şartlarına göre kuruyoruz.",
     ],
     customerProfile: [
-      "Beşiktaş'ta sık çalıştığımız kullanıcı profilleri arasında ev sahipleri, kiraya daire hazırlayan mülk yöneticileri, kısa sürede teslim bekleyen kiracılar ve ortak kullanım alanını tazelemek isteyen ofis işletmeleri bulunur.",
-      "Özellikle Levent, Gayrettepe ve Balmumcu tarafında ofis boyama talebi artarken; Abbasağa, Cihannüma, Ortaköy ve Akatlar gibi bölgelerde eşyalı daire yenilemesi ve rutubet kaynaklı boya işi daha sık gündeme gelir.",
+      "{district} içinde sık karşılaştığımız kullanıcılar arasında aileler, kiraya verilecek daire sahipleri, kısa sürede teslim bekleyen kiracılar ve bütçesini kontrollü kullanmak isteyen müşteriler öne çıkıyor.",
+      "Bu bölgede en çok beklenen şey net fiyat, düzgün koruma ve söz verilen sürede teslim. Özellikle apartman içi düzen ve komşuluk hassasiyeti nedeniyle temiz çalışma fark yaratıyor.",
     ],
     commonNeeds: [
-      "Beşiktaş'ta en sık karşılaştığımız ihtiyaç hızlı teslim, eski yüzey toparlama ve kiracı değişimi sonrası temiz görünüm elde etmektir. Çok büyük dekoratif beklentiden ziyade düzgün, hızlı ve güven veren sonuç daha fazla önem kazanır.",
-      "Eski binalarda kuzey cephe, dar hava boşluğu veya yetersiz havalandırma nedeniyle rutubet izleriyle de sık karşılaşıyoruz. Bu nedenle bazı işlerde normal boya ile birlikte leke kapatıcı ve yüzey hazırlığı planı yapıyoruz.",
+      "{district} boya badana işlerinde en sık görülen ihtiyaçlar koyu renkten açık tona geçiş, duvar darbe izlerinin toparlanması, tavan kararması, eşyalı ev koruması ve lokal alçı zımpara işlemleri oluyor.",
+      "Kullanıcıların önemli bir kısmı ekonomik çözüm isterken işçilikten taviz vermek istemiyor. Bu nedenle hangi boya tipinin gerçekten gerekli olduğunu ve hangi işlerin ek maliyet oluşturduğunu baştan açıkça anlatıyoruz.",
     ],
     localHighlights: [
-      "Öğrenci ya da kısa süreli kiracı sirkülasyonu olan dairelerde boyanın dayanıklılığı ve temizlik hissi ön plana çıkar. Silinebilir boya, hızlı kuruyan ürünler ve sade açık tonlar bu bölgede mantıklı tercihler olur.",
-      "İş merkezlerinin yoğun olduğu hatlarda ise ofislerin hafta sonu boyanıp pazartesi kullanıma hazır hale gelmesi istenir. Bu da işin süresinden çok planlama disiplinini kritik hale getirir.",
+      "{areas} çevresinde daire sirkülasyonu ve yoğun kullanım nedeniyle hızlı teslim beklentisi daha belirgin. Ama hız uğruna köşe temizliği, maskeleme ya da yüzey hazırlığını atlamamak gerekiyor.",
+      "{district} için yaklaşımımız kısa sürede biten ama sonradan problem çıkarmayan bir uygulama kurgulamak. Gerekirse tavan, duvar ve küçük onarımları tek program içinde topluyoruz.",
     ],
     serviceBridge: [
-      "Beşiktaş için ev boyama kadar ofis boyama ve rutubet çözümü de öne çıkıyor. Kiracı değişimi yaşayan dairelerde eşyalı ev boyama yerine çoğu zaman boş daire boya işleri daha yoğun olsa da, oturulan küçük dairelerde korumalı uygulama talepleri de geliyor.",
-      "İlçede önemli olan nokta şu: kullanıcı net fiyat, net süre ve muhatap istiyor. Biz de teklif aşamasında kapsamı olabildiğince açık kurarak ilerliyoruz.",
+      "{district} için en çok talep edilen hizmetler ev boyama, eşyalı ev boyama, alçı sıva zımpara ve ihtiyaç olduğunda rutubet çözümü oluyor.",
+      "Ön keşif sırasında dairenin boş ya da eşyalı olması, renk geçişi ve onarım ihtiyacı netleştiğinde iş planı da daha güvenli hale geliyor.",
+    ],
+    services: [
+      "Ev boyama",
+      "Eşyalı ev boyama",
+      "Alçı sıva zımpara",
+      "Rutubet ve küf çözümü",
+    ],
+    relatedBlogs: [
+      "boya-badana-oncesi-ev-nasil-hazirlanir",
+      "1-gunde-boya-badana-mumkun-mu",
+      "istanbul-boya-badana-fiyatlari",
+    ],
+    relatedServices: [
+      "ev-boyama",
+      "esyali-ev-boyama",
+      "alci-siva-zimpara",
+    ],
+    faqs: [
+      {
+        question: "{district} içinde boya badana işi aynı gün bitebilir mi?",
+        answer:
+          "Dairenin büyüklüğüne, eşyalı olup olmamasına ve onarım ihtiyacına göre değişir. Standart işlerde aynı gün teslim mümkün olabilir; detaylı hazırlık gereken durumlarda süreyi baştan netleştiriyoruz.",
+      },
+      {
+        question: "{district} bölgesinde ekonomik boya seçeneği sunuyor musunuz?",
+        answer:
+          "Evet, ancak sadece düşük fiyatlı ürün değil kullanım ihtiyacına uygun boya önermeye çalışıyoruz. Böylece kısa vadeli tasarruf için uzun vadeli memnuniyetten ödün verilmemiş olur.",
+      },
+    ],
+  },
+  "office-mixed": {
+    metaTitle:
+      "{district} Boya Badana | Ofis ve Konutlar İçin Planlı Uygulama",
+    metaDescription:
+      "{district} bölgesinde ofis, daire ve ticari alanlar için düzenli, hızlı ve profesyonel boya badana hizmeti veriyoruz.",
+    h1: "{district} Boya Badana Hizmeti ile Düzenli ve Profesyonel Plan",
+    intro: [
+      "{district} bölgesinde boya badana işleri çoğu zaman hem konut hem ofis ihtiyaçlarını aynı anda içeriyor. {areas} hattında kullanıcılar temiz görüntü, net zamanlama ve düzgün teslim beklentisiyle hareket ediyor.",
+      "Bu bölgelerde yalnızca duvarı boyamak yeterli olmuyor; çalışma saatleri, personel düzeni, ofis ekipmanları ya da hızlı kiracı değişimi gibi başlıklar da planın merkezine yerleşiyor.",
+    ],
+    customerProfile: [
+      "{district} içinde sık gördüğümüz müşteri profilleri arasında ofis yöneticileri, küçük işletmeler, kiraya verilecek daire sahipleri ve kısa sürede yenilenmiş görünüm isteyen kullanıcılar yer alıyor.",
+      "Bu bölgede kullanıcıların en çok önemsediği şey dakiklik, iletişim ve iş sonunda alanın düzenli kalması. Özellikle hafta sonu ya da mesai dışı uygulama talepleri sık geliyor.",
+    ],
+    commonNeeds: [
+      "{district} boya badana taleplerinde ofis duvarlarının yenilenmesi, toplantı odalarının temiz görünmesi, boş dairelerin kiracıya hazırlanması ve lokal tamir ihtiyacı sık öne çıkıyor.",
+      "Bazı yapılarda eski boya, iz bırakan koyu renkler ya da tavan kirlenmesi de görülebiliyor. Bu nedenle sadece boya değil, hazırlık ve toparlama planı da teklifin önemli parçası oluyor.",
+    ],
+    localHighlights: [
+      "{areas} çevresinde gün içinde yoğun kullanım olduğu için boya işini hayatı ya da işi gereksiz yere durdurmadan kurgulamak gerekiyor. Giriş çıkış saatleri, apartman kuralları ve iş akışı önceden konuşulduğunda süreç çok daha rahat ilerliyor.",
+      "{district} için yaklaşımımız, özellikle ofis ve karma kullanım alanlarında görüntü kalitesi ile zaman yönetimini aynı anda korumak. Bu nedenle ürün seçimi kadar uygulama saatine de dikkat ediyoruz.",
+    ],
+    serviceBridge: [
+      "{district} için en çok karşılık bulan başlıklar ofis boyama, ev boyama, alçı sıva zımpara ve ihtiyaç olduğunda rutubet çözümü oluyor.",
+      "Alanın durumuna göre ofis, konut ve ortak kullanım alanlarını ayrı fazlara bölerek daha kontrollü bir teslim süreci oluşturabiliyoruz.",
     ],
     services: [
       "Ofis boyama",
       "Ev boyama",
-      "Rutubet ve küf çözümü",
       "Alçı sıva zımpara",
-    ],
-    neighborhoods: [
-      "Abbasağa",
-      "Gayrettepe",
-      "Levent",
-      "Balmumcu",
-      "Ortaköy",
-      "Akatlar",
-    ],
-    faqs: [
-      {
-        question: "Beşiktaş'ta ofis boyama hafta sonu yapılabilir mi?",
-        answer:
-          "Uygun takvim bulunduğunda evet. Özellikle çalışan düzeni bozulmasın istenen ofislerde hafta sonu uygulama daha verimli olur.",
-      },
-      {
-        question: "Beşiktaş'ta rutubetli duvar boyası kalıcı olur mu?",
-        answer:
-          "Kaynağa bağlıdır. Önce sorunun nedeni değerlendirilir; sadece yüzey lekesi ise iyi sonuç alınabilir, yapısal nem varsa boya öncesi ek çözüm gerekir.",
-      },
+      "Rutubet ve küf çözümü",
     ],
     relatedBlogs: [
-      "rutubetli-duvar-nasil-boyanir",
       "ofis-boyama-yapilirken-nelere-dikkat-edilmeli",
       "1-gunde-boya-badana-mumkun-mu",
+      "istanbul-boya-badana-fiyatlari",
     ],
     relatedServices: [
       "ofis-boyama",
-      "rutubet-kuf-leke-cozumu",
       "ev-boyama",
+      "alci-siva-zimpara",
+    ],
+    faqs: [
+      {
+        question: "{district} içinde ofis boyama hafta sonu yapılabilir mi?",
+        answer:
+          "Uygun takvim ve bina kuralları elverdiğinde evet. Özellikle iş akışını bölmemek isteyen işletmeler için hafta sonu veya akşam planı daha verimli olabilir.",
+      },
+      {
+        question: "{district} bölgesinde boya sırasında alan tamamen kapanır mı?",
+        answer:
+          "Her işte gerekmez. Alanın büyüklüğüne göre bölümlü ilerleme yaparak evin ya da ofisin tamamını aynı anda kullanım dışı bırakmadan çalışmak çoğu zaman mümkündür.",
+      },
     ],
   },
-  {
-    name: "Bakırköy",
-    slug: "bakirkoy-boya-badana",
-    title: "Bakırköy Boya Badana",
-    metaTitle: "Bakırköy Boya Badana | Kaliteli Malzeme ve Temiz İşçilik",
+  "premium-residential": {
+    metaTitle:
+      "{district} Boya Badana | Estetik Beklentiye Uygun Temiz İşçilik",
     metaDescription:
-      "Bakırköy'de aile evleri ve geniş daireler için boya badana hizmeti. Kaliteli malzeme, temiz teslim ve taşınma öncesi yenileme için teklif alın.",
-    h1: "Bakırköy'de Kaliteli Malzeme ile Boya Badana Hizmeti",
+      "{district} bölgesinde seçici konut kullanıcıları için temiz çizgili, dikkatli korumalı ve estetik odaklı boya badana hizmeti sunuyoruz.",
+    h1: "{district} Boya Badana Hizmeti ile Estetik ve Temiz Sonuç",
     intro: [
-      "Bakırköy'de boya badana denildiğinde kullanıcıların önceliği çoğu zaman düzenli işçilik ve kaliteli malzeme oluyor. Ailelerin uzun süre yaşadığı dairelerde duvarın yalnızca boyanması değil, temiz görünmesi ve kullanım kolaylığı sunması bekleniyor.",
-      "Sahil hattına yakın bölgelerde ışık alan geniş salonlar, uzun koridorlar ve büyük metrekareli evler boya planını doğrudan etkiliyor. Bu yüzden malzeme seçimi, kat planı ve teslim süresi birlikte değerlendirilmelidir.",
+      "{district} tarafında boya badana talepleri çoğu zaman yalnızca renk değişimi değil, yaşam alanının algısını daha düzenli ve daha iyi hale getirme ihtiyacından doğuyor. {areas} çevresinde kullanıcılar ince işçilik, doğru ton seçimi ve temiz teslim konusunda daha seçici davranıyor.",
+      "Bu ilçelerde duvar sonucunun düzgün görünmesi kadar kenar çizgileri, tavan geçişleri, koruma kalitesi ve mobilyayla uyum da önem kazanıyor. Bu yüzden uygulamayı baştan planlı ve kontrollü kurguluyoruz.",
     ],
     customerProfile: [
-      "Bakırköy'de en sık çalıştığımız müşteri profili; taşınma öncesi dairesini toparlamak isteyen aileler, evini yıllar sonra yenileyen kullanıcılar ve kiraya hazırlanan geniş dairelerin sahipleri oluyor.",
-      "Yeşilköy, Ataköy, Florya hattında daha seçici malzeme beklentisi öne çıkarken; merkez mahallelerde pratik, temiz ve hızlı teslim ihtiyacı daha belirgin olabiliyor.",
+      "{district} içinde sık gördüğümüz kullanıcı profili; oturulan evi yenilemek isteyen aileler, taşınma öncesi daha iyi ilk izlenim arayan ev sahipleri ve seçili alanlarda dekoratif dokunuş isteyen müşteriler oluyor.",
+      "Bu bölgede kullanıcılar çoğu zaman aceleyle çıkmış bir iş istemiyor. Beklenti; temiz çalışan, sözüne sadık ve boya tipi konusunda yönlendirme yapabilen bir ekip oluyor.",
     ],
     commonNeeds: [
-      "Bakırköy'de geniş salon ve koridorları olan aile evlerinde duvarlarda darbe izleri, çocuk kaynaklı silinme sorunları ve tavan kirlenmesi sık görülür. Bu yüzden silinebilir boya ve düzgün yüzey geçişleri öne çıkar.",
-      "Taşınma öncesi boyama, boş daire yenileme ve eski açık tonları daha canlı ama yine sade renklerle güncelleme de sık karşılaşılan ihtiyaçlar arasında yer alır.",
+      "{district} boya badana işlerinde açık tonlara geçiş, seçili vurgu duvarları, yüzey kusurlarının toparlanması, eşyalı ev koruması ve silinebilir boya tercihleri öne çıkıyor.",
+      "Bazı evlerde dekoratif detay istenirken bazı kullanıcılar daha sade ama kaliteli bir görünüm arıyor. Bu nedenle malzeme seçimi kadar uygulama çizgisi ve teslim disiplini de belirleyici oluyor.",
     ],
     localHighlights: [
-      "Bakırköy tarafında kullanıcılar genelde 'uzun süre idare etsin' yaklaşımında olur. Bu nedenle en ucuz çözümden çok toplam sonucu koruyan malzeme ve düzgün uygulama daha fazla değer görür.",
-      "Büyük metrekareli evlerde süre planı ayrı önem taşır. İşin bir günde mi yoksa iki etapta mı bitmesinin daha doğru olacağını baştan konuşmak sonradan yaşanacak gerilimi azaltır.",
+      "{areas} hattında estetik beklenti yükseldikçe boyanın tonu, doku tercihi ve duvar hazırlığı daha önemli hale geliyor. Özellikle ışık alan salonlarda kusurlar daha görünür olduğu için yüzey hazırlığını sağlam tutmak gerekiyor.",
+      "{district} için yaklaşımımız gösterişli değil, dengeli ve zamana dayanıklı sonuç üretmek. Gerektiğinde dekoratif boya, lokal tamir ve standart iç cephe boyasını aynı proje içinde birleştiriyoruz.",
     ],
     serviceBridge: [
-      "Bakırköy'de ev boyama, eşyalı ev boyama ve taşınma öncesi boya işleri ağırlıktadır. Geniş yüzeylerde tavan boyası ve lokal alçı-zımpara desteği de çoğu zaman iş kapsamına girer.",
-      "Kaliteli ve silinebilir boya beklentisi yüksek olduğu için ürün seçimini kullanım biçimine göre birlikte netleştiriyoruz. Böylece hem bütçe hem de performans açısından daha dengeli bir sonuç çıkıyor.",
+      "{district} için en çok talep edilen hizmetler ev boyama, eşyalı ev boyama, dekoratif boya ve alçı sıva zımpara işleri oluyor.",
+      "Amaç yalnızca hızlı bitirmek değil; taşınma sonrası ya da günlük kullanım başladığında da memnuniyet veren daha düzgün bir görünüm oluşturmak.",
     ],
     services: [
       "Ev boyama",
       "Eşyalı ev boyama",
-      "Alçı sıva zımpara",
       "Dekoratif boya",
-    ],
-    neighborhoods: [
-      "Ataköy",
-      "Yeşilköy",
-      "Florya",
-      "Zuhuratbaba",
-      "Kartaltepe",
-      "Şenlikköy",
-    ],
-    faqs: [
-      {
-        question: "Bakırköy'de geniş daire boyama kaç gün sürer?",
-        answer:
-          "Metrekare, tavan durumu ve onarım ihtiyacına göre değişir. Büyük 4+1 ya da salonu geniş dairelerde iki etaplı plan daha sağlıklı olabilir.",
-      },
-      {
-        question: "Bakırköy'de hangi boya tipi daha çok tercih ediliyor?",
-        answer:
-          "Aile kullanımının yoğun olduğu evlerde silinebilir iç cephe boyaları daha çok tercih ediliyor. Yine de son kararı duvar durumu ve bütçeye göre vermek gerekir.",
-      },
+      "Alçı sıva zımpara",
     ],
     relatedBlogs: [
-      "istanbul-boya-badana-fiyatlari",
       "silinebilir-boya-mi-plastik-boya-mi",
       "tasinmadan-once-ev-boyatmak",
+      "esyali-evde-boya-badana-nasil-yapilir",
     ],
     relatedServices: [
       "ev-boyama",
       "esyali-ev-boyama",
-      "alci-siva-zimpara",
+      "dekoratif-boya",
+    ],
+    faqs: [
+      {
+        question: "{district} içinde dekoratif boya için keşif gerekiyor mu?",
+        answer:
+          "Evet, seçilecek duvarın boyutu, mevcut yüzeyi ve ışık durumu sonucu doğrudan etkilediği için kısa keşif ya da net fotoğraf değerlendirmesi faydalı olur.",
+      },
+      {
+        question: "{district} bölgesinde eşyalı evde temiz çalışma mümkün mü?",
+        answer:
+          "Doğru koruma ve oda planıyla mümkündür. Zemin, mobilya ve hassas yüzeyler iyi korunmadan bu tip evlerde beklenen kaliteye ulaşmak zordur.",
+      },
     ],
   },
-  {
-    name: "Adalar",
-    slug: "adalar-boya-badana",
-    title: "Adalar Boya Badana",
-    metaTitle: "Adalar Boya Badana | Nem ve Ahşap Yapılara Uygun Planlı Hizmet",
+  "villa-lowrise": {
+    metaTitle:
+      "{district} Boya Badana | Villa ve Geniş Yapılarda Planlı Uygulama",
     metaDescription:
-      "Adalar'da sezon öncesi ev boyama, nemli yüzey bakımı ve planlı boya badana hizmeti. Büyükada ve Heybeliada için teklif alın.",
-    h1: "Adalar'da Planlı ve Temiz Boya Badana Hizmeti",
+      "{district} bölgesinde villa, müstakil ev ve geniş yüzeyli daireler için planlı boya badana ve dış cephe çözümleri sunuyoruz.",
+    h1: "{district} Boya Badana Hizmeti ile Geniş Yapılarda Kontrollü Süreç",
     intro: [
-      "Adalar'da boya badana işi İstanbul'un diğer ilçelerine göre daha fazla planlama ister. Ulaşım düzeni, malzeme sevki, çalışma süresi ve hava koşulları bir arada düşünülmeden sağlıklı uygulama yapmak zorlaşır.",
-      "Büyükada, Heybeliada, Burgazada ve Kınalıada tarafında özellikle nem, yüzey yorgunluğu ve ahşap detay hassasiyeti boya işini daha teknik hale getiriyor. Bu yüzden uygulama kadar hazırlık ve organizasyon önemli.",
+      "{district} tarafında boya badana işleri çoğu zaman daha geniş metrekare, site düzeni ya da müstakil yapı detayları nedeniyle standart daire işlerinden ayrılıyor. {areas} çevresinde kullanıcılar hem iç mekân hem bazı durumlarda dış cephe için planlı ekip bekliyor.",
+      "Bu bölgelerde merdiven boşluğu, yüksek duvar, bahçe girişleri ya da çok bölümlü ev planı süre hesabını doğrudan etkileyebiliyor. Bu yüzden uygulamayı keşif aşamasından itibaren gerçekçi planlıyoruz.",
     ],
     customerProfile: [
-      "Adalar'da sık gördüğümüz müşteri profili yazlık evini sezon öncesi hazırlamak isteyen aileler, uzun süre kapalı kalmış evi temiz ve bakımlı hale getirmek isteyen mülk sahipleri ve ahşap detaylara zarar gelmesini istemeyen kullanıcılar oluyor.",
-      "Bu bölgede kullanıcıların en çok önemsediği konu aceleci değil, düzgün ve planlı çalışma. Günlük ulaşım ve malzeme takibi daha dikkatli planlandığı için işin başı ile sonu arasında iletişimin kuvvetli olması gerekiyor.",
+      "{district} içinde sık karşılaştığımız müşteri profilleri arasında yeni taşınacak aileler, site içinde yaşayan kullanıcılar, villa sahipleri ve uzun süredir yenilenmeyen geniş evleri toparlamak isteyen müşteriler yer alıyor.",
+      "Bu bölgede kullanıcılar genelde temiz teslim, net süre ve geniş alanda koordinasyon becerisi arıyor. Koruma planı ile ekip akışının düzgün olması memnuniyeti doğrudan etkiliyor.",
     ],
     commonNeeds: [
-      "Adalar'da nem izleri, yüzey kokusu, kabaran boya ve sezondan sezona yıpranan duvarlar sık karşılaşılan başlıklardır. Deniz etkisi ve kapalı kalmış alanlar nedeniyle bazen normal boya yenilemesinden önce yüzey temizliği gerekir.",
-      "Ahşap doğrama, korkuluk, kapı çevresi ve hassas zemine sahip evlerde koruma düzeni de ayrı önem taşır. Burada kullanıcılar sadece boyanmış duvar değil, özenli çalışma görmek ister.",
+      "{district} boya badana işlerinde boş daire boyama, eşyalı aile evi yenilemesi, yüksek duvarlarda lokal onarım, tavan çalışmaları ve bazı yapılarda dış cephe yenilemesi öne çıkıyor.",
+      "Geniş alanlı evlerde boya tipi, kat sayısı ve alanlar arası sıra önem kazanıyor. Aksi halde hem süre uzayabiliyor hem de ev içinde gereksiz dağınıklık oluşabiliyor.",
     ],
     localHighlights: [
-      "Adalar'da iş planı genellikle ulaşım saatleri ve malzeme hazırlığına göre yapılır. Bu yüzden özellikle sezon başı yoğunluğunda randevuyu erken netleştirmek doğru olur.",
-      "Yazlık evlerde çoğu zaman hızlı yenileme talebi olsa da nem sorunu bulunan alanlarda yüzeyin doğru hazırlanması aceleden daha önemlidir. Aksi halde birkaç hafta sonra aynı sorun geri dönebilir.",
+      "{areas} hattında site kuralları, araç erişimi, asansör kullanımı ya da dış alan etkisi planı değiştirebiliyor. Bu yüzden yalnızca boyanacak alanı değil, uygulama koşullarını da önceden değerlendiriyoruz.",
+      "{district} için yaklaşımımız işi parçalara bölmeden ama kontrolü kaybetmeden yürütmek. İç cephe, dış cephe ve lokal tamir ihtiyaçları varsa hepsini tek proje mantığında topluyoruz.",
     ],
     serviceBridge: [
-      "Adalar için ev boyama, rutubet ve leke çözümü, eşyalı evlerde korumalı uygulama ve gerektiğinde dekoratif ama sade renk yenilemeleri öne çıkıyor. Büyükada boyacı ya da Heybeliada boya badana arayan kullanıcıların çoğu temizlik ve güvenilir teslim beklentisiyle iletişime geçiyor.",
-      "Bu ilçede planlama gücü, düzgün iletişim ve hazırlık kalitesi işin kendisi kadar belirleyici. Biz de keşif ve teklif aşamasında bunu netleştirerek ilerliyoruz.",
+      "{district} için öne çıkan hizmetler ev boyama, dış cephe boyama, alçı sıva zımpara ve eşyalı ev boyama oluyor.",
+      "Özellikle taşınma öncesi ya da sezonluk hazırlık dönemlerinde keşfi erken yapmak, hem süreyi hem de malzeme planını daha sağlıklı hale getiriyor.",
     ],
     services: [
       "Ev boyama",
-      "Rutubet ve küf çözümü",
+      "Dış cephe boyama",
+      "Alçı sıva zımpara",
       "Eşyalı ev boyama",
-      "Dekoratif boya",
     ],
-    neighborhoods: ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada"],
+    relatedBlogs: [
+      "tasinmadan-once-ev-boyatmak",
+      "boya-badana-oncesi-ev-nasil-hazirlanir",
+      "1-gunde-boya-badana-mumkun-mu",
+    ],
+    relatedServices: [
+      "ev-boyama",
+      "dis-cephe-boyama",
+      "alci-siva-zimpara",
+    ],
     faqs: [
       {
-        question: "Adalar'da boya işi için önceden plan yapmak gerekir mi?",
+        question: "{district} içinde villa ya da dubleks boya süresi nasıl belirlenir?",
         answer:
-          "Evet. Ulaşım ve malzeme organizasyonu nedeniyle özellikle sezon yoğunluğunda randevuyu erken netleştirmek süreci rahatlatır.",
+          "Metrekare, tavan yüksekliği, merdiven boşluğu ve onarım ihtiyacı süreyi doğrudan etkiler. Bu tip işlerde keşif sonrası etaplı plan yapmak daha sağlıklı olur.",
       },
       {
-        question: "Nemli evlerde sadece boya yeterli olur mu?",
+        question: "{district} bölgesinde dış cephe ile iç cephe birlikte planlanabilir mi?",
         answer:
-          "Her zaman olmaz. Yüzeyde kabarma ve küf varsa boya öncesi teknik hazırlık gerekebilir.",
+          "Evet, yapının durumuna göre birlikte değerlendirilebilir. Ancak hava koşulları ve yüzey gereksinimleri nedeniyle çalışma sırasını baştan netleştirmek gerekir.",
       },
+    ],
+  },
+  "historic-core": {
+    metaTitle:
+      "{district} Boya Badana | Eski Yapılarda Dikkatli Yüzey Hazırlığı",
+    metaDescription:
+      "{district} bölgesinde tarihi dokuya sahip binalar, eski daireler ve bakım isteyen yüzeyler için dikkatli boya badana hizmeti veriyoruz.",
+    h1: "{district} Boya Badana Hizmeti ile Eski Yüzeylerde Doğru Hazırlık",
+    intro: [
+      "{district} bölgesinde boya badana işi çoğu zaman yalnızca yeni renk seçmekten ibaret olmuyor. {areas} çevresindeki eski yapı dokusu nedeniyle duvarın gerçek durumu, önceki katmanlar ve yer yer oluşan yorgun yüzeyler ayrıca değerlendirilmeli.",
+      "Bu tip alanlarda iyi sonuç almak için aceleci uygulamadan çok doğru hazırlık gerekir. Lokal dökülme, çatlak, kabarma ya da leke varsa bunları boya öncesinde ele almak uzun vadede daha sağlıklı olur.",
+    ],
+    customerProfile: [
+      "{district} içinde sık karşılaştığımız kullanıcı profili; eski dairesini yenilemek isteyen aileler, kiraya hazırlanacak konut sahipleri ve yüzey kusurlarını toparlayarak daha temiz görünüm isteyen müşteriler oluyor.",
+      "Kullanıcılar genelde hem makul bütçe hem de işin sonradan tekrar istememesini önemsiyor. Bu yüzden gereksiz işlem önermeden, gerçekten ihtiyaç olan hazırlığı öne çıkarıyoruz.",
+    ],
+    commonNeeds: [
+      "{district} boya badana işlerinde çatlak kapatma, eski boya katmanlarının toparlanması, tavan kararması, lokal rutubet izi ve alçı sıva zımpara ihtiyacı sık öne çıkıyor.",
+      "Ayrıca dar merdivenli binalar, eski kapı kasaları ve hassas süpürgelikler nedeniyle koruma kalitesi de daha görünür hale geliyor. Bu yüzden temiz uygulama sonucu doğrudan etkiliyor.",
+    ],
+    localHighlights: [
+      "{areas} çevresinde bina yaşı arttıkça duvar hazırlığı boya kadar önemli hale geliyor. Bazı yüzeylerde iyi görünüm için bir kat boya değil, önce düzgün tamir ve astar planı gerekiyor.",
+      "{district} için yaklaşımımız, görüntüyü kısa süreli düzeltmek yerine daha sağlam bir temel kurmak. Böylece boya tamamlandıktan sonra yüzey kusurları tekrar öne çıkmıyor.",
+    ],
+    serviceBridge: [
+      "{district} için en çok karşılık bulan hizmetler ev boyama, alçı sıva zımpara, rutubet ve küf çözümü ile seçili alanlarda dekoratif boya oluyor.",
+      "Eski dairelerde hangi onarımın gerçekten gerekli olduğunu keşif sırasında netleştirmek, sonradan çıkabilecek sürprizleri azaltıyor.",
+    ],
+    services: [
+      "Ev boyama",
+      "Alçı sıva zımpara",
+      "Rutubet ve küf çözümü",
+      "Dekoratif boya",
     ],
     relatedBlogs: [
       "rutubetli-duvar-nasil-boyanir",
       "boya-badana-oncesi-ev-nasil-hazirlanir",
-      "boya-badana-sonrasi-temizlik",
+      "istanbul-boya-badana-fiyatlari",
     ],
     relatedServices: [
-      "rutubet-kuf-leke-cozumu",
       "ev-boyama",
-      "esyali-ev-boyama",
-    ],
-  },
-  {
-    name: "Maltepe",
-    slug: "maltepe-boya-badana",
-    title: "Maltepe Boya Badana",
-    metaTitle: "Maltepe Boya Badana | Site Daireleri İçin Temiz ve Güvenilir Hizmet",
-    metaDescription:
-      "Maltepe'de eşyalı ev, site dairesi ve taşınma öncesi boya badana hizmeti. Temiz teslim, çocuk odası boyama ve şeffaf fiyat için teklif alın.",
-    h1: "Maltepe'de Temiz Teslim Boya Badana Hizmeti",
-    intro: [
-      "Maltepe'de boya badana taleplerinin büyük kısmı aile kullanımına uygun, temiz teslim odaklı işler oluyor. Site daireleri, yeni taşınılan evler ve çocuk odası yenilemeleri bu bölgede öne çıkan başlıklar arasında.",
-      "İlçede hem yeni apartman ve siteler hem de daha eski daire tipleri bulunduğu için her iş aynı senaryoda ilerlemiyor. Kimi evlerde yalnızca renk tazelemek gerekirken, kimilerinde taşınma öncesi detaylı toparlama ihtiyacı doğuyor.",
-    ],
-    customerProfile: [
-      "Maltepe'de en sık karşılaştığımız müşteri profili çocuklu aileler, yeni eve taşınacak kullanıcılar ve oturulan evinde fazla dağınıklık yaşamadan yenileme yapmak isteyen çiftler oluyor.",
-      "Site yaşamı nedeniyle kullanıcılar sadece boya sonucunu değil, ekip disiplinini, saat planını ve ortak alanlara dikkat edilmesini de önemsiyor. Güven duygusu burada doğrudan çalışma tarzıyla kuruluyor.",
-    ],
-    commonNeeds: [
-      "Maltepe boya badana işlerinde en çok istenen konular arasında eşyalı ev boyama, çocuk odası için silinebilir boya, taşınma öncesi boş daire hazırlığı ve temiz teslim bulunuyor.",
-      "Açık renk duvarlara geçiş, lokal duvar izlerinin düzeltilmesi ve tavan boyasının aynı iş içinde planlanması da sık rastlanan ihtiyaçlar arasında yer alıyor.",
-    ],
-    localHighlights: [
-      "Yeni site dairelerinde kullanıcılar genelde hızlı ama düzgün iş istiyor. 'Bir an önce bitsin' beklentisi kadar, boya sonrasında evin hemen kullanıma hazır görünmesi de önemli.",
-      "Daha eski apartman dairelerinde ise lokal çatlaklar, çocuk güvenlik aparatlarının bıraktığı izler ve taşınma kaynaklı duvar darbeleri daha sık karşımıza çıkıyor.",
-    ],
-    serviceBridge: [
-      "Maltepe için ev boyama ve eşyalı ev boyama ana başlıklar. Taşınma öncesi boya planı olan kullanıcılar için alçı-sıva desteği ve boya tipi seçimi de sürecin önemli bir parçası oluyor.",
-      "Çocuk odalarında koku, silinebilirlik ve dayanıklılık dengesi daha kritik olduğundan malzeme seçimini bu ihtiyaçlara göre yapıyoruz.",
-    ],
-    services: [
-      "Eşyalı ev boyama",
-      "Ev boyama",
-      "Alçı sıva zımpara",
-      "Dekoratif boya",
-    ],
-    neighborhoods: [
-      "Cevizli",
-      "Altayçeşme",
-      "İdealtepe",
-      "Küçükyalı",
-      "Aydınevler",
-      "Bağlarbaşı",
+      "alci-siva-zimpara",
+      "rutubet-kuf-leke-cozumu",
     ],
     faqs: [
       {
-        question: "Maltepe'de eşyalı ev boyama için site yönetiminden izin gerekir mi?",
+        question: "{district} içinde eski duvarlarda boya öncesi tamir şart mı?",
         answer:
-          "Bazı sitelerde çalışma saati ve tadilat bildirimi kuralı bulunabilir. Bu nedenle uygulama öncesi yönetim prosedürünü netleştirmek faydalı olur.",
+          "Her zaman geniş kapsamlı tamir gerekmez; ancak çatlak, dökülme, delik ya da parlak eski boya geçişleri varsa yüzey hazırlığı iyi sonucu doğrudan etkiler.",
       },
       {
-        question: "Çocuk odası için hangi boya daha uygundur?",
+        question: "{district} bölgesinde tarihi ya da eski yapı dairelerinde boya ne kadar sürer?",
         answer:
-          "Kullanım yoğunluğu ve temizlik beklentisi varsa silinebilir ve düşük kokulu iç cephe boyaları daha uygun olabilir.",
+          "Süre, duvarın durumuna ve onarım miktarına göre değişir. Standart yeni yapı dairelerine göre hazırlık aşaması biraz daha uzun sürebilir.",
       },
     ],
+  },
+  "modern-residential": {
+    metaTitle:
+      "{district} Boya Badana | Yeni Daire ve Sitelerde Temiz Uygulama",
+    metaDescription:
+      "{district} bölgesinde yeni daireler, siteler ve modern konutlar için temiz, hızlı ve planlı boya badana hizmeti sunuyoruz.",
+    h1: "{district} Boya Badana Hizmeti ile Yeni Yapılarda Temiz Sonuç",
+    intro: [
+      "{district} tarafında boya badana talepleri çoğu zaman yeni taşınma, site içi yenileme ya da modern daireleri kısa sürede toparlama ihtiyacıyla geliyor. {areas} çevresinde kullanıcılar temiz kenar geçişleri, düzenli ekip ve hızlı teslim bekliyor.",
+      "Yeni yapı stokunda duvarlar çok eski olmayabilir; ancak nakliye izleri, lokal darbeler, yanlış renk seçimi ya da kirlenmiş tavanlar yine de profesyonel uygulama gerektiriyor. Bu yüzden işi basit görünse bile planlı kurguluyoruz.",
+    ],
+    customerProfile: [
+      "{district} içinde sık gördüğümüz müşteri profili; yeni eve taşınan aileler, site dairesini yenilemek isteyen kullanıcılar, kısa sürede temiz sonuç arayan müşteriler ve bazı bölgelerde ofis kullanıcıları oluyor.",
+      "Bu ilçelerde kullanıcılar genelde hızlı randevu, ulaşılabilir muhatap ve net teklif bekliyor. Özellikle site düzeni nedeniyle çalışma saatleri ve ortak alan kullanımı önceden netleşmeli.",
+    ],
+    commonNeeds: [
+      "{district} boya badana işlerinde açık renge geçiş, iz bırakan duvarların toparlanması, çocuk odası yenilemesi, eşyalı daire koruması ve gerekirse küçük alçı zımpara işleri öne çıkıyor.",
+      "Yeni yapılarda kusurlar ışık altında daha belirgin görünebildiği için düzgün kenar çizgisi, iz bırakmayan uygulama ve kontrollü kat planı daha fazla önem kazanıyor.",
+    ],
+    localHighlights: [
+      "{areas} hattında site kuralları ve zaman planı çoğu işte belirleyici oluyor. Asansör kullanımı, gürültü sınırı ve ortak alan koruması baştan konuşulduğunda süreç daha konforlu ilerliyor.",
+      "{district} için yaklaşımımız az müdahale ile temiz sonuç elde etmek. Gerekli değilse gereksiz işlem önermeden, ama ihtiyaç varsa küçük onarımları boya öncesinde toparlayarak ilerliyoruz.",
+    ],
+    serviceBridge: [
+      "{district} için en çok talep edilen hizmetler ev boyama, eşyalı ev boyama, ofis boyama ve bazı projelerde dekoratif boya oluyor.",
+      "Taşınma takvimi ya da site kuralı sıkışıksa uygulamayı etaplara ayırıp daha kontrollü bir teslim planı hazırlayabiliyoruz.",
+    ],
+    services: [
+      "Ev boyama",
+      "Eşyalı ev boyama",
+      "Ofis boyama",
+      "Dekoratif boya",
+    ],
     relatedBlogs: [
-      "cocuk-odasi-icin-hangi-boya-secilmeli",
-      "esyali-evde-boya-badana-nasil-yapilir",
+      "istanbul-boya-badana-fiyatlari",
+      "1-gunde-boya-badana-mumkun-mu",
       "tasinmadan-once-ev-boyatmak",
     ],
     relatedServices: [
-      "esyali-ev-boyama",
       "ev-boyama",
-      "alci-siva-zimpara",
-    ],
-  },
-  {
-    name: "Şişli",
-    slug: "sisli-boya-badana",
-    title: "Şişli Boya Badana",
-    metaTitle: "Şişli Boya Badana | Ofis ve Daireler İçin Hızlı Boya Hizmeti",
-    metaDescription:
-      "Şişli'de ofis boyama, kiracı değişimi ve apartman daireleri için temiz boya badana hizmeti. Hafta sonu çalışma ve hızlı teslim için teklif alın.",
-    h1: "Şişli'de Ofis ve Daireler İçin Boya Badana Hizmeti",
-    intro: [
-      "Şişli'de boya badana işleri genelde hızlı karar ve hızlı teslim beklentisiyle gelir. Hem konut hem ofis stoğunun yoğun olması nedeniyle kullanıcılar işi uzatmadan çözmek ister ama yine de düzenli ekip görmek ister.",
-      "Mecidiyeköy, Fulya, Nişantaşı, Bomonti ve Esentepe hattında farklı kullanım tipleri yan yana bulunduğu için Şişli'de standart tek bir boya senaryosu yoktur. Kiracı değişimi yaşayan daire ile hafta sonu kapanan ofisin ihtiyacı farklıdır.",
-    ],
-    customerProfile: [
-      "Şişli'de sık karşılaştığımız müşteri profilleri arasında ofis yöneticileri, kısa sürede evi kiraya hazırlamak isteyen mülk sahipleri, oturulan apartman dairesini yenilemek isteyen aileler ve küçük ticari işletmeler yer alıyor.",
-      "Bu bölgede kullanıcıların en çok beklediği şey dakiklik, net fiyat ve işi takip edebilecek bir muhatap. Özellikle ofis tarafında düzenli iletişim kritik hale geliyor.",
-    ],
-    commonNeeds: [
-      "Şişli boya badana taleplerinde ofis duvarlarının yenilenmesi, toplantı odalarının temiz görünmesi, kiracı değişimi sonrası boş dairenin toparlanması ve hafta sonu uygulama planı sık öne çıkıyor.",
-      "Eski apartmanlarda lokal rutubet ve çatlak ihtiyacı da görülebiliyor; ancak çoğu kullanıcı çözümü hızlı ve sade bir uygulama içinde almak istiyor.",
-    ],
-    localHighlights: [
-      "Nişantaşı ve çevresinde estetik beklenti daha yüksekken, Mecidiyeköy ve Esentepe tarafında süre ve iş akışını bozmama önceliği daha belirgin oluyor. Bu nedenle aynı ilçe içinde bile yaklaşım değişebiliyor.",
-      "Şişli'de ofislerin önemli kısmı hafta içi yoğun çalıştığı için akşam ya da hafta sonu uygulaması kullanıcı açısından ciddi kolaylık sağlar.",
-    ],
-    serviceBridge: [
-      "Şişli için en uygun hizmet başlıkları ofis boyama, ev boyama, alçı-sıva desteği ve gerektiğinde rutubet çözümü oluyor. Özellikle kiracı değişimi dönemlerinde duvarların kısa sürede temiz ve güven veren hale gelmesi öne çıkıyor.",
-      "Buradaki hedef sadece boyayı bitirmek değil, anahtarı teslim ederken ya da pazartesi ofis açılırken alanın düzenli görünmesini sağlamak.",
-    ],
-    services: [
-      "Ofis boyama",
-      "Ev boyama",
-      "Alçı sıva zımpara",
-      "Rutubet ve küf çözümü",
-    ],
-    neighborhoods: [
-      "Mecidiyeköy",
-      "Bomonti",
-      "Esentepe",
-      "Fulya",
-      "Nişantaşı",
-      "Harbiye",
+      "esyali-ev-boyama",
+      "ofis-boyama",
     ],
     faqs: [
       {
-        question: "Şişli'de ofis boyama işini hafta sonuna almak mümkün mü?",
+        question: "{district} içinde site dairesi boyanırken yönetim kuralları sorun olur mu?",
         answer:
-          "Uygunluk durumunda evet. Özellikle operasyonu durdurmak istemeyen ofisler için hafta sonu planı daha avantajlı olur.",
+          "Birçok sitede çalışma saatleri ve ortak alan kullanımıyla ilgili kurallar bulunur. Bu bilgiler teklif aşamasında netleştiğinde uygulama daha sorunsuz ilerler.",
       },
       {
-        question: "Şişli'de kiracı değişimi arasında hızlı boya yapılır mı?",
+        question: "{district} bölgesinde taşınmadan hemen önce boya planlanabilir mi?",
         answer:
-          "Dairenin durumuna göre çoğu iş hızlandırılabilir. Ancak onarım ihtiyacı varsa süreyi baştan açık konuşmak gerekir.",
+          "Çoğu durumda evet. Takvim sıkışıksa erken iletişime geçmek, keşif ve boya seçimini daha rahat organize etmeyi sağlar.",
       },
     ],
-    relatedBlogs: [
-      "ofis-boyama-yapilirken-nelere-dikkat-edilmeli",
-      "1-gunde-boya-badana-mumkun-mu",
-      "istanbul-boya-badana-fiyatlari",
-    ],
-    relatedServices: ["ofis-boyama", "ev-boyama", "alci-siva-zimpara"],
   },
+};
+
+const districtSeeds: DistrictSeed[] = [
   {
-    name: "Üsküdar",
-    slug: "uskudar-boya-badana",
-    title: "Üsküdar Boya Badana",
-    metaTitle: "Üsküdar Boya Badana | Temiz Çalışan Güvenilir Boyacı Ustası",
-    metaDescription:
-      "Üsküdar'da aile evleri, eski binalar ve rutubetli duvarlar için boya badana hizmeti. Temiz çalışma, ücretsiz keşif ve net fiyat için ulaşın.",
-    h1: "Üsküdar'da Güvenilir ve Temiz Boya Badana Hizmeti",
-    intro: [
-      "Üsküdar'da boya badana ihtiyacı çoğu zaman aile kullanımına uygun, temiz ve güvenilir bir ekip arayışıyla başlar. İlçenin hem eski bina dokusu hem de sahile yakın nemli alanları nedeniyle boya işi bazen yüzey hazırlığıyla birlikte düşünülmelidir.",
-      "Kuzguncuk, Altunizade, Acıbadem, Çengelköy ve çevresinde kullanıcılar genellikle eşyasına dikkat eden, sözüne sadık ve işi yarım bırakmayan ekip arıyor. Bu nedenle teknik kalite kadar iletişim ve düzen de önem kazanıyor.",
-    ],
-    customerProfile: [
-      "Üsküdar'da sık karşılaştığımız müşteri profilleri; uzun süredir oturulan aile evini yenilemek isteyen kullanıcılar, taşınma öncesi dairesini hazırlayan ev sahipleri ve rutubet nedeniyle boyası tekrar tekrar bozulan ev sakinleri oluyor.",
-      "Bu bölgede çoğu kullanıcı için boya bir estetik karar kadar bakım ihtiyacı. Özellikle eski apartman ve müstakil yapılarda yüzey durumu boyanın yönünü belirliyor.",
-    ],
-    commonNeeds: [
-      "Üsküdar boya badana işlerinde rutubet ve leke geçişi, tavan kararması, eski duvar çatlakları ve eşyalı aile evlerinde koruma ihtiyacı öne çıkıyor. Dairenin günlük kullanımı bozulmadan tamamlanması da sık dile getirilen bir beklenti.",
-      "Sahil hattına yakın bazı bölgelerde duvarın nefes alamaması, kuzey cephe serinliği ya da uzun süre kapalı kalan odalar nedeniyle lokal küf izleriyle karşılaşabiliyoruz.",
-    ],
-    localHighlights: [
-      "Üsküdar'da güven duygusu çoğu zaman fiyat kadar etkili. Kullanıcılar ustanın saatinde gelmesini, ne konuşulduysa ona sadık kalınmasını ve iş sonunda ortada bırakılmamayı önemsiyor.",
-      "Aile evlerinde çocuk odası, salon ve antre gibi alanlar birlikte boyanırken ev düzenini fazla dağıtmadan ilerlemek önemlidir. Bu nedenle eşyalı ev planı sıkça devreye girer.",
-    ],
-    serviceBridge: [
-      "Üsküdar için öne çıkan başlıklar ev boyama, eşyalı ev boyama ve rutubet çözümü oluyor. Bazı eski binalarda lokal alçı-zımpara ve tavan yenilemesi de boyanın ayrılmaz parçası haline geliyor.",
-      "Amacımız kullanıcıya sadece yeni renk sunmak değil, daha bakımlı, daha temiz ve daha güven veren bir yaşam alanı teslim etmek.",
-    ],
-    services: [
-      "Ev boyama",
-      "Eşyalı ev boyama",
-      "Rutubet ve küf çözümü",
-      "Alçı sıva zımpara",
-    ],
-    neighborhoods: [
-      "Kuzguncuk",
-      "Altunizade",
-      "Acıbadem",
-      "Çengelköy",
-      "Ünalan",
-      "Beylerbeyi",
-    ],
-    faqs: [
-      {
-        question: "Üsküdar'da rutubetli duvar boyası ne kadar dayanır?",
-        answer:
-          "Yüzeydeki problemin kaynağına göre değişir. Doğru hazırlık yapılırsa iyi sonuç alınabilir, ancak sürekli nem alan yapısal sorunlarda önce kaynak çözülmelidir.",
-      },
-      {
-        question: "Üsküdar'da eşyalı aile evi boyanırken ev çok dağılır mı?",
-        answer:
-          "Planlı koruma ve oda sıralaması ile bu dağınıklık önemli ölçüde kontrol altına alınabilir. Amaç işi yalnızca bitirmek değil, ev düzenini mümkün olduğunca korumaktır.",
-      },
-    ],
-    relatedBlogs: [
-      "rutubetli-duvar-nasil-boyanir",
-      "esyali-evde-boya-badana-nasil-yapilir",
-      "boya-badana-oncesi-ev-nasil-hazirlanir",
-    ],
-    relatedServices: [
-      "rutubet-kuf-leke-cozumu",
-      "esyali-ev-boyama",
-      "ev-boyama",
-    ],
+    name: "Adalar",
+    neighborhoods: ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada"],
+    profile: "coastal-family",
   },
   {
     name: "Ataşehir",
-    slug: "atasehir-boya-badana",
-    title: "Ataşehir Boya Badana",
-    metaTitle: "Ataşehir Boya Badana | Rezidans ve Ofisler İçin Temiz Hizmet",
-    metaDescription:
-      "Ataşehir'de rezidans, modern daire ve ofisler için boya badana hizmeti. Hızlı randevu, temiz işçilik ve kurumsal görünüm için teklif alın.",
-    h1: "Ataşehir'de Rezidans ve Ofis Boyama Hizmeti",
-    intro: [
-      "Ataşehir'de boya badana beklentisi çoğu zaman hız, düzen ve temiz işçilik etrafında şekilleniyor. Yeni rezidanslar, modern daireler ve kurumsal ofisler nedeniyle kullanıcılar daha profesyonel, daha sistemli bir hizmet görmek istiyor.",
-      "İlçede yüzeyler çoğu zaman çok eski olmayabilir; bu da boya işini daha çok görünüm kalitesi, teslim düzeni ve zaman planı açısından önemli hale getirir.",
-    ],
-    customerProfile: [
-      "Ataşehir'de sık karşılaştığımız müşteri profili; yeni taşınan rezidans sakinleri, ofisini hızlıca yenilemek isteyen şirketler, kurumsal görünümünü toparlamak isteyen küçük işletmeler ve kısa sürede temiz sonuç arayan kullanıcılar oluyor.",
-      "Batı Ataşehir ve Finans Merkezi çevresinde ofis işleri, İçerenköy ve Kayışdağı hattında ise konut yenilemeleri daha sık karşımıza çıkıyor.",
-    ],
-    commonNeeds: [
-      "Ataşehir boya badana işlerinde en sık talep edilen başlıklar rezidans boyama, ofis boyama, taşınma öncesi modern daire hazırlığı ve hızlı randevu oluyor. Kullanıcılar genelde 'az müdahale ile temiz sonuç' beklentisi taşıyor.",
-      "Açık renk, düzenli kenar geçişi ve iz bırakmayan uygulama bu bölgede daha çok önem kazanıyor. Çünkü yeni yapı stoğunda kusurlar ışık altında daha net görünebiliyor.",
-    ],
-    localHighlights: [
-      "Rezidans ve site yaşamında yönetim kuralları, çalışma saatleri ve ortak alan hassasiyeti bulunduğu için ekip planı önceden netleştirilmelidir. Kullanıcılar genellikle zamana hassas davranır.",
-      "Ofis tarafında ise boyanın ertesi gün çalışma düzenini bozmaması beklenir. Bu da hızlı kuruyan, düzenli uygulanan ve toparlanmış teslim edilen işlerin değerini artırır.",
-    ],
-    serviceBridge: [
-      "Ataşehir için öne çıkan hizmetler ofis boyama, ev boyama, dekoratif vurgu duvarları ve rezidans içi temiz boya uygulamalarıdır. Gerekirse lokal alçı-zımpara ile yüzey kusurlarını da toparlıyoruz.",
-      "Bu bölgede marka algısı güçlü olan, şık ama abartısız sonuçlar daha iyi karşılık bulur. Dolayısıyla malzeme seçimi ve renk dengesi de işin önemli parçası haline gelir.",
-    ],
-    services: [
-      "Ofis boyama",
-      "Ev boyama",
-      "Dekoratif boya",
-      "Alçı sıva zımpara",
-    ],
-    neighborhoods: [
-      "Ataşehir Atatürk",
-      "Küçükbakkalköy",
-      "İçerenköy",
-      "Kayışdağı",
-      "Barbaros",
-      "Yenişehir",
-    ],
-    faqs: [
-      {
-        question: "Ataşehir'de rezidans boyama için çalışma saati sınırı olur mu?",
-        answer:
-          "Birçok sitede tadilat saatleri bulunur. Uygulama planını buna göre yapmak gerekir; teklif aşamasında bu bilgiyi öğrenmek işleri kolaylaştırır.",
-      },
-      {
-        question: "Ataşehir'de ofis boyama sırasında iş akışı durur mu?",
-        answer:
-          "Doğru zaman planı ile bu etki azaltılabilir. Hafta sonu ya da akşam uygulamaları bu yüzden tercih edilir.",
-      },
-    ],
-    relatedBlogs: [
-      "ofis-boyama-yapilirken-nelere-dikkat-edilmeli",
-      "1-gunde-boya-badana-mumkun-mu",
-      "silinebilir-boya-mi-plastik-boya-mi",
-    ],
-    relatedServices: ["ofis-boyama", "ev-boyama", "dekoratif-boya"],
+    neighborhoods: ["İçerenköy", "Kayışdağı", "Yenişehir", "Atatürk"],
+    profile: "modern-residential",
+  },
+  {
+    name: "Bağcılar",
+    neighborhoods: ["Güneşli", "Mahmutbey", "Kirazlı", "Yüzyıl"],
+    profile: "dense-urban",
+  },
+  {
+    name: "Bahçelievler",
+    neighborhoods: ["Yenibosna", "Soğanlı", "Kocasinan", "Şirinevler"],
+    profile: "dense-urban",
+  },
+  {
+    name: "Bakırköy",
+    neighborhoods: ["Ataköy", "Yeşilköy", "Florya", "Kartaltepe"],
+    profile: "premium-residential",
+  },
+  {
+    name: "Bayrampaşa",
+    neighborhoods: ["Kocatepe", "Yıldırım", "Muratpaşa", "Altıntepsi"],
+    profile: "dense-urban",
+  },
+  {
+    name: "Beşiktaş",
+    neighborhoods: ["Levent", "Gayrettepe", "Ortaköy", "Akatlar"],
+    profile: "office-mixed",
+  },
+  {
+    name: "Beykoz",
+    neighborhoods: ["Kavacık", "Paşabahçe", "Çubuklu", "Acarkent"],
+    profile: "villa-lowrise",
+  },
+  {
+    name: "Beylikdüzü",
+    neighborhoods: ["Adnan Kahveci", "Kavaklı", "Gürpınar", "Yakuplu"],
+    profile: "modern-residential",
+  },
+  {
+    name: "Beyoğlu",
+    neighborhoods: ["Cihangir", "Kasımpaşa", "Galata", "Taksim"],
+    profile: "historic-core",
+  },
+  {
+    name: "Çatalca",
+    neighborhoods: ["Kaleiçi", "Ferhatpaşa", "Çiftlikköy", "Muratbey"],
+    profile: "villa-lowrise",
   },
   {
     name: "Çekmeköy",
-    slug: "cekmekoy-boya-badana",
-    title: "Çekmeköy Boya Badana",
-    metaTitle: "Çekmeköy Boya Badana | Güvenilir ve Temiz Ev Boyama Hizmeti",
-    metaDescription:
-      "Çekmeköy'de villa, site evi ve taşınma öncesi daireler için boya badana hizmeti. Ekonomik ama güvenilir çözümler için teklif alın.",
-    h1: "Çekmeköy'de Güvenilir Boya Badana Hizmeti",
-    intro: [
-      "Çekmeköy'de boya badana ihtiyacı genellikle yeni yerleşim düzeni, site yaşamı ve taşınma öncesi hazırlıklarla birlikte geliyor. İlçede hem villa tipi yapılar hem de yeni apartman daireleri bulunduğu için kullanıcıların beklentisi temiz, güvenilir ve makul fiyatlı hizmet yönünde şekilleniyor.",
-      "Bu bölgede kullanıcıların önemli bir kısmı evi teslim almadan önce içeri daha ferah bir görünüm kazandırmak ya da yeni taşınacağı alanı hijyen açısından toparlamak istiyor. Boya işi de bu nedenle doğrudan yaşam konforuna bağlanıyor.",
-    ],
-    customerProfile: [
-      "Çekmeköy'de sık gördüğümüz müşteri profilleri arasında yeni eve taşınacak aileler, site dairesini boyatmak isteyen kullanıcılar, villa içi oda yenilemeleri yaptıran ev sahipleri ve bütçesini kontrol altında tutmak isteyen genç aileler bulunuyor.",
-      "Buradaki kullanıcılar çoğunlukla ekonomik olmasını isterken işçilikten taviz vermek istemiyor. En sık duyduğumuz beklenti net plan, temiz teslim ve ulaşılabilir muhatap oluyor.",
-    ],
-    commonNeeds: [
-      "Çekmeköy boya badana işlerinde taşınma öncesi boya, boş daire boyama, çocuk odası yenilemesi ve eşyalı site dairelerinde korumalı uygulama öne çıkıyor. Yeni yapılarda duvarlar çok yıpranmamış olsa da nakliye kaynaklı darbeler ve lokal izler sık görülüyor.",
-      "Villa ve dubleks yapılarda merdiven boşluğu, yüksek duvar ve geniş yüzey planı da süre hesabını etkileyen önemli başlıklar arasında yer alıyor.",
-    ],
-    localHighlights: [
-      "Site düzeni nedeniyle çalışma saati, asansör kullanımı ve ortak alan hassasiyeti dikkate alınmalı. Bu kurallara uyumlu çalışan ekipler bölgede daha çok tercih ediliyor.",
-      "Yeni yerleşim alanlarında kullanıcılar çoğu zaman çevresinden tavsiye alarak usta seçiyor. Bu nedenle düzenli iletişim ve temiz işçilik burada güven oluşturan ana unsurlar arasında.",
-    ],
-    serviceBridge: [
-      "Çekmeköy için ev boyama, eşyalı ev boyama ve taşınma öncesi hızlı boya işleri en çok talep edilen hizmetler. İhtiyaç olduğunda alçı-zımpara ile lokal hasarları toparlayıp tek iş içinde bitirmeye çalışıyoruz.",
-      "Bütçe hassasiyetinin yüksek olduğu kullanıcılar için boya tipi ve iş kapsamını açıkça anlatarak ilerlemek önemli. Böylece hem fiyat hem beklenti en başta netleşiyor.",
-    ],
-    services: [
-      "Ev boyama",
-      "Eşyalı ev boyama",
-      "Alçı sıva zımpara",
-      "Dekoratif boya",
-    ],
-    neighborhoods: [
-      "Merkez",
-      "Taşdelen",
-      "Mimar Sinan",
-      "Alemdağ",
-      "Ömerli",
-      "Hamidiye",
-    ],
-    faqs: [
-      {
-        question: "Çekmeköy'de taşınma öncesi boya için kaç gün önce aramak gerekir?",
-        answer:
-          "Taşınma takvimi sıkışıksa mümkün olduğunca erken iletişime geçmek faydalı olur. Böylece keşif, boya seçimi ve uygulama günü daha rahat planlanır.",
-      },
-      {
-        question: "Çekmeköy'de ekonomik boya seçeneği var mı?",
-        answer:
-          "Evet, ama yalnızca fiyat odaklı değil kullanım ihtiyacına uygun ürün seçmek gerekir. Farklı bütçelere göre dengeli seçenekler sunabiliyoruz.",
-      },
-    ],
-    relatedBlogs: [
-      "tasinmadan-once-ev-boyatmak",
-      "cocuk-odasi-icin-hangi-boya-secilmeli",
-      "istanbul-boya-badana-fiyatlari",
-    ],
-    relatedServices: ["ev-boyama", "esyali-ev-boyama", "alci-siva-zimpara"],
+    neighborhoods: ["Madenler", "Alemdağ", "Taşdelen", "Hamidiye"],
+    profile: "villa-lowrise",
+  },
+  {
+    name: "Esenler",
+    neighborhoods: ["Menderes", "Birlik", "Turgut Reis", "Nine Hatun"],
+    profile: "dense-urban",
+  },
+  {
+    name: "Eyüpsultan",
+    neighborhoods: ["Göktürk", "Alibeyköy", "Kemerburgaz", "Rami"],
+    profile: "office-mixed",
+  },
+  {
+    name: "Fatih",
+    neighborhoods: ["Aksaray", "Fındıkzade", "Balat", "Çarşamba"],
+    profile: "historic-core",
+  },
+  {
+    name: "Gaziosmanpaşa",
+    neighborhoods: ["Karadeniz", "Mevlana", "Küçükköy", "Yıldıztabya"],
+    profile: "dense-urban",
+  },
+  {
+    name: "Güngören",
+    neighborhoods: ["Merkez", "Sanayi", "Haznedar", "Mareşal Çakmak"],
+    profile: "dense-urban",
+  },
+  {
+    name: "Kadıköy",
+    neighborhoods: ["Moda", "Fenerbahçe", "Caddebostan", "Erenköy"],
+    profile: "premium-residential",
+  },
+  {
+    name: "Kağıthane",
+    neighborhoods: ["Çağlayan", "Seyrantepe", "Hamidiye", "Gültepe"],
+    profile: "office-mixed",
+  },
+  {
+    name: "Kartal",
+    neighborhoods: ["Atalar", "Soğanlık", "Yakacık", "Cevizli"],
+    profile: "coastal-family",
+  },
+  {
+    name: "Küçükçekmece",
+    neighborhoods: ["Atakent", "Halkalı", "Sefaköy", "Cennet"],
+    profile: "dense-urban",
+  },
+  {
+    name: "Maltepe",
+    neighborhoods: ["Altayçeşme", "İdealtepe", "Zümrütevler", "Küçükyalı"],
+    profile: "coastal-family",
+  },
+  {
+    name: "Pendik",
+    neighborhoods: ["Kurtköy", "Yenişehir", "Esenyalı", "Kaynarca"],
+    profile: "modern-residential",
+  },
+  {
+    name: "Sancaktepe",
+    neighborhoods: ["Sarıgazi", "Yenidoğan", "Samandıra", "Abdurrahmangazi"],
+    profile: "modern-residential",
+  },
+  {
+    name: "Sarıyer",
+    neighborhoods: ["Tarabya", "İstinye", "Maslak", "Zekeriyaköy"],
+    profile: "premium-residential",
+  },
+  {
+    name: "Şişli",
+    neighborhoods: ["Mecidiyeköy", "Fulya", "Bomonti", "Esentepe"],
+    profile: "office-mixed",
+  },
+  {
+    name: "Sultanbeyli",
+    neighborhoods: ["Mecidiye", "Battalgazi", "Hamidiye", "Adil"],
+    profile: "modern-residential",
+  },
+  {
+    name: "Tuzla",
+    neighborhoods: ["Aydınlı", "İçmeler", "Postane", "Orhanlı"],
+    profile: "coastal-family",
+  },
+  {
+    name: "Ümraniye",
+    neighborhoods: ["Yamanevler", "Çakmak", "Ihlamurkuyu", "Atakent"],
+    profile: "modern-residential",
+  },
+  {
+    name: "Üsküdar",
+    neighborhoods: ["Kuzguncuk", "Altunizade", "Çengelköy", "Acıbadem"],
+    profile: "coastal-family",
+  },
+  {
+    name: "Zeytinburnu",
+    neighborhoods: ["Seyitnizam", "Veliefendi", "Merkezefendi", "Kazlıçeşme"],
+    profile: "dense-urban",
   },
 ];
+
+function slugifyDistrictName(name: string) {
+  return name
+    .toLocaleLowerCase("tr-TR")
+    .replace(/ğ/g, "g")
+    .replace(/ü/g, "u")
+    .replace(/ş/g, "s")
+    .replace(/ı/g, "i")
+    .replace(/ö/g, "o")
+    .replace(/ç/g, "c")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function fillTemplate(template: string, district: string, areas: string) {
+  return template
+    .replaceAll("{district}", district)
+    .replaceAll("{areas}", areas);
+}
+
+function createDistrict(seed: DistrictSeed): District {
+  const profile = districtProfiles[seed.profile];
+  const areas = seed.neighborhoods.slice(0, 3).join(", ");
+
+  return {
+    name: seed.name,
+    slug: `${slugifyDistrictName(seed.name)}-boya-badana`,
+    title: `${seed.name} Boya Badana`,
+    metaTitle: fillTemplate(profile.metaTitle, seed.name, areas),
+    metaDescription: fillTemplate(profile.metaDescription, seed.name, areas),
+    h1: fillTemplate(profile.h1, seed.name, areas),
+    intro: profile.intro.map((item) => fillTemplate(item, seed.name, areas)),
+    customerProfile: profile.customerProfile.map((item) =>
+      fillTemplate(item, seed.name, areas),
+    ),
+    commonNeeds: profile.commonNeeds.map((item) =>
+      fillTemplate(item, seed.name, areas),
+    ),
+    localHighlights: profile.localHighlights.map((item) =>
+      fillTemplate(item, seed.name, areas),
+    ),
+    serviceBridge: profile.serviceBridge.map((item) =>
+      fillTemplate(item, seed.name, areas),
+    ),
+    services: profile.services,
+    neighborhoods: seed.neighborhoods,
+    faqs: profile.faqs.map((item) => ({
+      question: fillTemplate(item.question, seed.name, areas),
+      answer: fillTemplate(item.answer, seed.name, areas),
+    })),
+    relatedBlogs: profile.relatedBlogs,
+    relatedServices: profile.relatedServices,
+  };
+}
+
+export const districts: District[] = districtSeeds.map(createDistrict);
 
 export function getDistrictBySlug(slug: string) {
   return districts.find((district) => district.slug === slug);

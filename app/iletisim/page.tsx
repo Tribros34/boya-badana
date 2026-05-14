@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { PageHero } from "@/components/PageHero";
-import { PriceEstimatorForm } from "@/components/PriceEstimatorForm";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { districts } from "@/data/districts";
 import { contactFaqs } from "@/data/faqs";
@@ -18,7 +17,7 @@ import {
 export const metadata = createPageMetadata({
   title: "İletişim | Ücretsiz Keşif ve WhatsApp'tan Hızlı Fiyat",
   description:
-    "Telefon, WhatsApp, iletişim formu, hizmet bölgeleri ve Google Maps alanı ile İstanbul boya badana iletişim sayfası.",
+    "Telefon, WhatsApp, hizmet bölgeleri ve Google Maps alanı ile İstanbul boya badana iletişim sayfası.",
   path: "/iletisim",
 });
 
@@ -77,11 +76,6 @@ export default function ContactPage() {
           </p>
         </article>
       </section>
-
-      <PriceEstimatorForm
-        title="İletişim formu"
-        description="Form gönderiminden sonra teşekkür mesajı ve WhatsApp yönlendirmesi gösterilir. Yapı daha sonra backend'e bağlanabilecek şekilde düzenlenmiştir."
-      />
 
       <section className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
         <article className="rounded-[32px] border border-stone-200 bg-white p-8 shadow-sm">
