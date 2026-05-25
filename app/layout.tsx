@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -30,6 +31,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={`${plusJakarta.variable} h-full antialiased`}>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18167776605"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-18167776605');
+          `}
+        </Script>
+      </head>
       <body className="min-h-full bg-[var(--color-canvas)] font-sans text-[var(--color-text)]">
         <div className="relative flex min-h-screen flex-col">
           <Header />
